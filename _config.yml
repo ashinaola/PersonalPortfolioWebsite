@@ -34,7 +34,7 @@ plugins:
 collections:
   categories:
     output: true
-    permalink: /categories/:name/
+    permalink: /:categories/:title/
 
 
 # Exclude from processing.
