@@ -7,4 +7,4 @@ _site
 vendor/
 
 # Ignore extra files or unnecessary files
-datastructures/fibonaccicomparison
+datastructures/fibo*
