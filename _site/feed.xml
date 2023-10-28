@@ -1,13 +1,68 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/PersonalPortfolioWebsite/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/PersonalPortfolioWebsite/" rel="alternate" type="text/html" /><updated>2023-10-24T22:36:10-07:00</updated><id>http://localhost:4000/PersonalPortfolioWebsite/feed.xml</id><title type="html">codebyfrank</title><subtitle>this is a website to show off different personal projects and to keep the creativity flowing</subtitle><entry><title type="html">seeing the pros and cons of two approaches - recursion and iteration</title><link href="http://localhost:4000/PersonalPortfolioWebsite/datastructures/data%20structures%20and%20algorithms/2023/10/23/recursion-versus-iteration.html" rel="alternate" type="text/html" title="seeing the pros and cons of two approaches - recursion and iteration" /><published>2023-10-23T00:00:00-07:00</published><updated>2023-10-23T00:00:00-07:00</updated><id>http://localhost:4000/PersonalPortfolioWebsite/datastructures/data%20structures%20and%20algorithms/2023/10/23/recursion-versus-iteration</id><content type="html" xml:base="http://localhost:4000/PersonalPortfolioWebsite/datastructures/data%20structures%20and%20algorithms/2023/10/23/recursion-versus-iteration.html"><![CDATA[<p>The first time i compared two different approaches in problem solving within the domain of computer science, it was looking at the fibonacci sequence and making a program which would generate a sequence of numbers that fulfill a set of conditions.  Here are the conditions:</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/PersonalPortfolioWebsite/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/PersonalPortfolioWebsite/" rel="alternate" type="text/html" /><updated>2023-10-27T19:15:48-07:00</updated><id>http://localhost:4000/PersonalPortfolioWebsite/feed.xml</id><title type="html">codebyfrank</title><subtitle>this is a website to show off different personal projects and to keep the creativity flowing</subtitle><entry><title type="html">seeing the pros and cons of two approaches - recursion and iteration</title><link href="http://localhost:4000/PersonalPortfolioWebsite/datastructures/data%20structures%20and%20algorithms/2023/10/23/recursion-versus-iteration.html" rel="alternate" type="text/html" title="seeing the pros and cons of two approaches - recursion and iteration" /><published>2023-10-23T00:00:00-07:00</published><updated>2023-10-23T00:00:00-07:00</updated><id>http://localhost:4000/PersonalPortfolioWebsite/datastructures/data%20structures%20and%20algorithms/2023/10/23/recursion-versus-iteration</id><content type="html" xml:base="http://localhost:4000/PersonalPortfolioWebsite/datastructures/data%20structures%20and%20algorithms/2023/10/23/recursion-versus-iteration.html"><![CDATA[<p>The first time i compared two different approaches in problem solving within the domain of computer science, it was looking at the fibonacci sequence and making a program which would generate a sequence of numbers that fulfill a set of conditions.  Here are the conditions:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. The first number is 1
 2. The current number is the sum of the previous two numbers
 3. All numbers are integers
 </code></pre></div></div>
 
-<p>The idea behind the exercise was to demonstrate the differences in performance between different approaches to solving a particular problem.  For the Fibonacci sequence, it turns out that iteration was able to return sequences far beyond the limit of the program which used recursion.  However, I want to explore the different trade-offs between recursion and iteration.  With recursion, it is usually assumed to be a more elegant approach to problem solving compared to iteration.  When maintaining one’s own stack, readability becomes key in the long term.  However, there are downsides to using recursion such as a larger amount of memory possibly being used or a less intuitive approach to solving the problem.  At the foundation of this is the difference between a top-down and bottom-up approach in designing algorithms.</p>
+<p>The idea behind the exercise was to demonstrate the differences in performance between different approaches to solving a particular problem.  For the Fibonacci sequence, it turns out that iteration was able to return sequences far beyond the limit of the program which used recursion.  However, I want to explore the different trade-offs between recursion and iteration.  With recursion, it is usually assumed to be a more elegant approach to problem solving compared to iteration.  When maintaining one’s own stack, readability becomes key in the long term.  However, there are downsides to using recursion such as a larger amount of memory possibly being used or a less intuitive approach to solving the problem.  At the foundation of this is the difference between a top-down and bottom-up approach in designing algorithms.
+In order to make this comparison, I will use Python to set up and compare the different approaches.  There will not be any differences as far as environment goes, they will be compiled in the same environment.  All things constant, the hope is to see obvious differences between iteration and recursion and have a better understanding of when to take whichever approach.</p>
 
-<h3 id="fibonacci-sequence">fibonacci sequence</h3>
+<h3 id="fibonacci-number">fibonacci number</h3>
+<p>The first problem to present an opportunity to compare the two approaches is the Fibonacci number.  It is a simple problem where you are to build a list of numbers where current element’s value is the sum of the previous two elements in the list.  An example of a fibonacci number is:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1, 1, 2, 3, 5, 8, 13, ...
+</code></pre></div></div>
+<p>and the fibonacci number is the sum of all the elements in the list.  The problem could be approached by building the list top down through recursion or bottom up through iteration.  First, in order to have a better understanding of how each of these programs are going to function, it would be better to have pseudocode so that less energy is spent on carving the logic of the program out and more is spent on simply expressing the idea.</p>
+
+<h4 id="pseudocode-recursion">pseudocode: recursion</h4>
+<p>The first task in setting up a recursive solution for printing out a list of fibonacci numbers is finding the base case.  In the case of the fibonacci number, the base case would be when the parameter is either 0 or 1.  This is because if we are to print n-amount of numbers, if n = 0 or if n = 1, then the number would just be the number.  So for starting out, we have a base case where:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>f(0) = 0
+f(1) = 1
+</code></pre></div></div>
+<p>The next step would be to establish some kind of relationship between the function and the parameter.  This very crucial step in being able to derive the recurrence relation, which is what you’re pseudocode is going to be based off of.  The recurrence relation for the fibonacci number is:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>F(n) = F(n-1) + F(n-2)
+</code></pre></div></div>
+<p>Once you have the recurrence relation, you can then be able to write out some pseudocode to make the process of typing out your code a lot simpler:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function(integer n):
+    return n if n = 0 or n = 1
+    return f(n-1) + f(n-2)
+</code></pre></div></div>
+
+<h4 id="code-recursion">code: recursion</h4>
+<p>After you have the pseudocode, typing the actual code wouldn’t be too hard. Translation when it comes to the recursion pseudocode is very straightforward:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def recursive_fibonacci(n):
+    if n &lt; 2:
+        return n
+    else:
+        return recursive_fibonacci(n-1) + recursive_fibonacci(n-2)
+</code></pre></div></div>
+<p>As you can see, taking pseudocode and turning it into real code is fairly straightforward when it comes to recursion.</p>
+
+<h4 id="pseudocode-iteration">pseudocode: iteration</h4>
+<p>As you saw, recursion has a more familiar feel to how we would approach a problem such as fibonacci.  My data structures professor described recursion as a fairly intuitive approach to designing various algorithms to solve complex problems.  However, as intuitive as recursion is, there are other ways to get n amount of fibonacci numbers.  Another alternative to recursion is iteration, which if you are familiar with programming concepts, can be expressed in the form of a for or while loop.</p>
+
+<p>As previously mentioned, the pseudocode for the iterative solution to fibonacci numbers is not as straightforward as the two step process to build the recursive solution.  While the recursive solution starts from the top (n) and works down to f(0), iteration works in a different way where one starts from 1 and works up to n.  As such, the most appropriate way to start would be to initiate a variable which will store the sum.  After the variable is started at 1, a loop should be initialized and the loop should go n-1 iterations.  On each iteration, we will add the value from the previous iteration and the one prior to the running sum.  This is what the pseudocode would look like:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function(integer n):
+    before variable = 1     // represents f(n-1)
+    previous variable = 0   // represents f(n-2)
+    current variable = 1    // represents running sum
+    start loop @ 1 -&gt; n:
+        previous variable = before variable
+        before variable = previous variable
+        current variable = previous variable + before variable
+    return current variable
+</code></pre></div></div>
+
+<h4 id="code-iteration">code: iteration</h4>
+<p>As far as building a function in Python, the translation is not as straightforward as recursion but it does preserve most of its main structure.  The code is similar and is probably a little more condensed than the pseudocode because of the features that Python has to offer as an interpreted language.  The iterative function looks as follows:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def iter_funct(n):
+    prev, curr = 0, 1
+    for i in range(n):
+        prev, curr = curr, prev + curr
+    return prev
+</code></pre></div></div>
+<p>Like the pseudocode, the function uses the running sum to track the fibonacci sequence as the loop is executing.  The three steps shown are condensed into one single line within the loop.  Python is quite well known for allowing programmers to produce code that is condensed, yet readable to the human.</p>
 
 <h3 id="coin-change-problem">coin change problem</h3>
 
