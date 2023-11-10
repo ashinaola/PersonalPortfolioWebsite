@@ -80,9 +80,10 @@ function display():
 
 ### plan of execution: travel itinerary
 The first portion of the travel itinerary will be made of the singly-linked list that we just went over.  The program's logic will contain the same operations as the examples that I went over:
-    - addCity()
-    - leftCity()
-    - deleteCity(city* user)
-    - displayItinerary()
-    - searchItinerary(string searchstring)
+- addCity()
+- leftCity()
+- deleteCity(city* user)
+- displayItinerary()
+- searchItinerary(string searchstring)
+
 There are a couple differences between these operations and the example operations that I discussed previously.  The leftCity will implement the previously discussed head deletion of the list.  This is to emulate leaving one city and travelling to the next.  The deleteCity() function will implement the search then delete that was mentioned previously.  The other functions will generally work just like the example functions of the basic singly-linked list. 
