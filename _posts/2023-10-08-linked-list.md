@@ -1,7 +1,9 @@
 ---
 layout: post
+type: posts
 title: building then using a singly-linked list
-categories: [data structures and algorithms]
+date: 2023-10-08
+categories: [Data structures and Algorithms]
 ---
 One of the first problems that I encountered in my introduction to computer programming class was trying to add another element to an array which was already full.  This caused the compiler to print an error message.  At the time, I worked around the issue by replacing the full array with an array which was double the size and move all the elements over from the smaller, old array to the larger array.  However, my professor mentioned that after a while, the array will become too large and copying the elements would be much slower than adding the elements to something that wasn't fixed in size.  This is when they introduced the data structure, the singly-linked list.  So today, I was thinking of building a singly-linked list and using the list to build travel iterneraries.  Hopefully, by the end of this, singly-linked lists will be a lot more easier to navigate.
 
@@ -86,4 +88,6 @@ The first portion of the travel itinerary will be made of the singly-linked list
 - displayItinerary()
 - searchItinerary(string searchstring)
 
-There are a couple differences between these operations and the example operations that I discussed previously.  The leftCity will implement the previously discussed head deletion of the list.  This is to emulate leaving one city and travelling to the next.  The deleteCity() function will implement the search then delete that was mentioned previously.  The other functions will generally work just like the example functions of the basic singly-linked list. 
+There are a couple differences between these operations and the example operations that I discussed previously.  The leftCity will implement the previously discussed head deletion of the list.  This is to emulate leaving one city and travelling to the next.  The deleteCity() function will implement the search then delete that was mentioned previously.  The other functions will generally work just like the example functions of the basic singly-linked list.
+
+I also am going to add a 

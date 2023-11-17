@@ -1,7 +1,9 @@
 ---
 layout: post
+type: posts
 title: seeing the pros and cons of two approaches - recursion and iteration
-categories: [data structures and algorithms]
+date: 2023-10-23
+categories: [Data structures and Algorithms]
 ---
 The first time i compared two different approaches in problem solving within the domain of computer science, it was looking at the fibonacci sequence and making a program which would generate a sequence of numbers that fulfill a set of conditions.  Here are the conditions:
 

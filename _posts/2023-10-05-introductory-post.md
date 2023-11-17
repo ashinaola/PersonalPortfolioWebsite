@@ -1,7 +1,9 @@
 ---
 layout: post
+type: posts
 title: welcome to codebyfrank!
-categories: [miscellaneous]
+date: 2023-10-05
+categories: [Miscellaneous]
 ---
 Hello! Welcome to codebyfrank, where I plan on sharing different experiences and personal projects I take on.  I hope that I can inspire others to go out and build something amazing by showcasing my personal projects and showing my journey through the learning process.  Software development is one of those skills that normally has a steep learning curve.  By posting and sharing some of the problems and struggles that I encounter, I hope that it would inspire you to either come up with a better solution or that I piqued your interest in the area of software development.
 
