@@ -34,13 +34,7 @@ plugins:
 collections:
   categories:
     output: true
-    permalink: /articles/:year-:month/:title
-defaults:
-  - scope:
-      path: ""
-      type: post
-    values:
-      categories: ["DevOps", "Linux", "Mathematics", "Data structures and Algorithms", "Web Development", "Miscellaneous"]
+    permalink: /:title
 
 # Exclude from processing.
 # The following items will not be processed, by default.
