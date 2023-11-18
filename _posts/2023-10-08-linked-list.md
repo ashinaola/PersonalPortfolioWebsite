@@ -90,4 +90,18 @@ The first portion of the travel itinerary will be made of the singly-linked list
 
 There are a couple differences between these operations and the example operations that I discussed previously.  The leftCity will implement the previously discussed head deletion of the list.  This is to emulate leaving one city and travelling to the next.  The deleteCity() function will implement the search then delete that was mentioned previously.  The other functions will generally work just like the example functions of the basic singly-linked list.
 
-I also am going to add a 
+I also am going to add a method to calculate the distance between the two different cities so that the distance between the two can be displayed.  The other challenge would also be having the method work for different cities.  The current plan is to have a .csv of the different cities in the world and the program would then query against the file and return the necessary attributes such as latitude and longtitude in order to calculate the distance.  This would be most of the features that I plan on implementing and I would consider this to be the core of the application.
+
+Starting from adding a city onto the itinerary, I am going to try to build a planner using the previous methods discussed along with a few other methods to add a couple more features to the list to improve the experience of using the list to build travel itineraries.  By adding a .csv to the program, I am hoping that range of what is covered by the list is expanded compared to building a list by hand.
+
+#### addCity: adding a city to the itinerary
+
+#### leftCity: leaving a city
+
+#### deleteCity: undoing a wrong addition to the list
+
+#### displayItinerary: show the list contents
+
+#### searchItinerary: show whether a city is on the itinerary
+
+#### calcDistance: calculate the distances
