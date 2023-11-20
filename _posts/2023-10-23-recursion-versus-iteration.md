@@ -81,8 +81,30 @@ Like the pseudocode, the function uses the running sum to track the fibonacci se
 
 ### coin change problem
 
+#### pseudocode: recursion
+
+#### code: recursion
+
+#### pseudocode: iteration
+
+#### code: iteration
 
 ### merge sort implementation
 
+#### pseudocode: recursion
 
-### walking/traversing trees
+#### code: recursion
+
+#### pseudocode: iteration
+
+#### code: iteration
+
+### in-order traversal of trees
+
+#### pseudocode: recursion
+
+#### code: recursion
+
+#### pseudocode: iteration
+
+#### code: iteration
