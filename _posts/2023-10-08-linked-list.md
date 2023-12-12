@@ -1,7 +1,7 @@
 ---
 layout: post
 type: posts
-title: building then using a singly-linked list
+title: building then using a singly-linked list (part 1)
 date: 2023-10-08
 categories: [Data structures and Algorithms]
 ---
@@ -109,6 +109,26 @@ In the case of the itinerary, this would mean that if we added the cities in the
 
 Here is the final code that I have as of the time of the post.  One reason for this wording is because code can be seen as a living thing that needs to constantly adapt to changing requirements and feature addition.  I hope that over time, I will improve on the performance of the logic and will update the post on any additions if they are crucial:
 ```
+void addCity(std::string cityName, float cityLong, float cityLat, 
+std::vector<std::string> cityLandMarks, std::vector<float> cityLMLong, std::vector<float> cityLMLat) {
+    city* newCity = new city;
+    newCity->name = cityName;
+    newCity->longtitude = cityLong;
+    newCity->latitude = cityLat;
+    newCity->landmarks = cityLandMarks;
+    newCity->landmarkLongtitudes = cityLMLong;
+    newCity->landmarkLatitudes = cityLMLat;
+            
+    if(firstCity == nullptr) {
+        firstCity = newCity;
+    } else {
+        city* lastCity = firstCity;
+        while(lastCity->nextCity != nullptr) {
+            newCity = newCity->nextCity;
+        }
+        lastCity->nextCity = newCity;    
+    }
+}
 ```
 
 #### leftCity: leaving a city
@@ -125,6 +145,15 @@ So in order to execute this on the linked list, the idea would be to take the he
 
 Here is the final code as of finalizing this post:
 ```
+void leftCity() {
+    if(firstCity == nullptr) {
+        return;
+    } else {
+        city* tempCity = firstCity;
+        firstCity = firstCity->nextCity;
+        delete tempCity;
+    }
+}
 ```
 
 #### searchItinerary: show whether a city is on the itinerary
@@ -132,6 +161,21 @@ The next function I want to implement is a function to take a string that the us
 
 Here is the final code:
 ```
+bool searchItinerary(std::string searchString) {
+    bool foundFlag;
+    city* iterator = firstCity;
+
+    while(iterator->nextCity->name != searchString) {
+        iterator = iterator->nextCity;
+    }
+
+    if(iterator->nextCity == nullptr && iterator->name != searchString) {
+        foundFlag = false;
+    } else {
+        foundFlag = true;
+    }
+    return foundFlag;
+}
 ```
 
 #### deleteCity: undoing a wrong addition to the list
@@ -147,6 +191,17 @@ As with searchItinerary, the deleteCity function will have a worst-case runtime 
 
 Here is a glimps at the final code for the function:
 ```
+void deleteCity(std::string userInput) {
+    city* iterator = firstCity;
+    
+    while(iterator->nextCity->name != userInput) {
+        iterator = iterator->nextCity;
+    }
+
+    city* temp = iterator->nextCity;
+    iterator->nextCity = iterator->nextCity->nextCity;
+    delete temp;
+}
 ```
 
 #### displayItinerary: show the list contents
@@ -154,6 +209,14 @@ The displayItinerary function is an important part of the program since this all
 
 Here is the final code of displayItinerary():
 ```
+void displayItinerary() {
+    city* iterator = firstCity;
+
+    while(iterator->nextCity != nullptr) {
+        std::cout << iterator->name << '\n';
+        iterator = iterator->nextCity;
+    }    
+}
 ```
 
 #### calcDistance: calculate the distances
@@ -161,6 +224,14 @@ The fundamental experience will also have the ability to know just how far each 
 
 So here is the tentative code for the distance function:
 ```
+float computeDistance(city* source, city* dest) {
+    float source_x = source->longtitude;
+    float source_y = source->latitude;
+    float dest_x = dest->longtitude;
+    float dest_y = dest->latitude;
+
+    return sqrt(pow((source_x-dest_x),2) + pow((source_y-dest_y),2));
+}
 ```
 
 ### the interface: a program that will live on the terminal
@@ -235,4 +306,4 @@ Sequence:   1. Execute the displayItinerary() function when the user selects
 ```
 
 #### application interface
-The main idea behind the interface is to have a menu that the user can be able to choose from at all times.  Since this will be an application which will be ran on the command line, one of the most important parts of having a great application is to be able to allow for the user to take advantage of the increased flexibility that the command line offers relative to the graphical user interface.  Each operation of the itinerary would have its own set of menus, but users should always be able to access a main menu that allows them to be able to perform the previously mentioned functions anytime during use of the program.  
+The main idea behind the interface is to have a menu that the user can be able to choose from at all times.  Since this will be an application which will be ran on the command line, one of the most important parts of having a great application is to be able to allow for the user to take advantage of the increased flexibility that the command line offers relative to the graphical user interface.  Each operation of the itinerary would have its own set of menus, but users should always be able to access a main menu that allows them to be able to perform the previously mentioned functions anytime during use of the program.  We will implement the application interface in the next part and work with user input.  In the final part 3, we are going to get the application to interact with the .csv file in order to get the distances between the cities that the user enters into the TravelPlanner.  This will allow us to have a full functioning application that we used a singly linked list to build!  I hope you are as excited as I am.
