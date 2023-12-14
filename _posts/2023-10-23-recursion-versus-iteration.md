@@ -80,8 +80,10 @@ def iter_funct(n):
 Like the pseudocode, the function uses the running sum to track the fibonacci sequence as the loop is executing.  The three steps shown are condensed into one single line within the loop.  Python is quite well known for allowing programmers to produce code that is condensed, yet readable to the human.  
 
 ### coin change problem
+The coin change problem is a classical algorithmic problem where one is given a list of values that represent the denominations of the currency.  The main goal of the coin change problem is to give the exact amount of change, using the least amount of coins.  As before with the fibonacci sequence, both the iterative and recursive approaches are going to be compared in terms of intuition and ease of solution.
 
 #### pseudocode: recursion
+
 
 #### code: recursion
 
@@ -90,6 +92,7 @@ Like the pseudocode, the function uses the running sum to track the fibonacci se
 #### code: iteration
 
 ### merge sort implementation
+In algorithms, sorting is possibly one of the most important problems that one would encounter.  The idea is to take a list of unsorted elements and sort them in ascending or descending order.  There are many different sorting algorithms such as insertion sort, bubble sort, quicksort, etc. but the focus is going to be on merge sort.  The idea of merge sort is to utilize recursion or iteration to break down the unsorted array into simpler bits of the input, and then merge the sorted bits together to create the sorted list.
 
 #### pseudocode: recursion
 
@@ -100,6 +103,9 @@ Like the pseudocode, the function uses the running sum to track the fibonacci se
 #### code: iteration
 
 ### in-order traversal of trees
+Data structures introduces different storage mechanisms for data along with their operations.  Trees are possibly one of the more versatile data structures which have many uses in software engineering.  An example is using a binary search partition in a 3D video game rendering engine.  Another example of trees being used in real life is to implement a heap which is used in priority queues.  Priority queues play a major role in scheduling processes on the operating system of your computer.  As noted there are many practical uses for trees because their structure is intuitive and a subset of trees (binary trees) make searching incredibly easy and fast.
+
+One of the important operations of a tree is to traverse the tree.  However, there are three different ways to traverse a tree.  Here, the focus is going to be on implementing the recursive and iterative in-order traversal of a tree.  The other ways to traverse a tree is pre-order traversal and post-order traversal.
 
 #### pseudocode: recursion
 
